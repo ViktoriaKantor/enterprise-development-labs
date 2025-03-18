@@ -56,9 +56,9 @@ public class RentalInMemoryRepository : IBicycleRepository
     /// Получить топ 5 наиболее часто арендуемых велосипедов
     /// </summary>
     /// <returns>Список велосипедов и количества их аренды</returns>
-    public Task<IList<Tuple<Bicycle, int>>> GetTop5MostRentedBicycles(Bicycle? item1)
+    public Task<IList<Tuple<Bicycle, int>>> GetTop5MostRentedBicycles()
     {
-        List<Tuple<Bicycle, int>> topBicycles = _bicycles
+        var topBicycles = _bicycles
                 .GroupBy(r => r.Id)
                 .Select(g => new
                 {
